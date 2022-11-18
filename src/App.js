@@ -5,8 +5,13 @@ import OuterCard from './components/OuterCard';
 import Work from './components/work';
 import Education from './components/education';
 import Hobbies from './components/hobbies';
+import { useState } from 'react';
 
 function App() {
+  const [isActive, setIsActive] = useState({
+    active: true,
+    name: 'education'
+  })  
   return (
     <>
       <Navbar />
@@ -17,10 +22,15 @@ function App() {
               {/* <!-- Replace with your content -->
 
             <!-- Work --> */}
-              <OuterCard />
+              <OuterCard isActive={isActive} setIsActive={setIsActive} />
 
-              {/* <!-- Work --> */}
-              <Work />
+              { isActive.active && isActive.name == "education" ? (
+                 <Education /> 
+                ): isActive.active && isActive.name == "work" ? (
+                  <Work />
+                ) : (
+                  <Hobbies />
+                )}
 
               {/* <!-- Education --> */}
               <Education />
@@ -31,8 +41,6 @@ function App() {
             <Hobbies />
             </main>
         </div>
-      
-    
     </>
   );
 }
