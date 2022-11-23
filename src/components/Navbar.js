@@ -79,7 +79,7 @@ export default function Navbar(){
                       text-gray-500
                       hover:border-gray-300 hover:text-gray-700
                     ">Blog</a>
-                  <a href="#" class="
+                  <a href="/contact" class="
                       inline-flex
                       items-center
                       border-b-2 border-transparent
